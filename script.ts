@@ -36,4 +36,5 @@ let otherBoard= () => {
 let board = [["orange", "blue", "purple", "pink"], ["red", "orange", "pink", "green"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
 firstQuarter();
+drawRectangle("blue", 0, 0);
 
