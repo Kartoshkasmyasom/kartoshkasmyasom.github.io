@@ -1,4 +1,4 @@
-let drawRectangle = (string: color, number: i, number: j) => {
+let drawRectangle = (color: string, i, j: number) => {
     let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     ctx.fillStyle = color;
@@ -27,7 +27,7 @@ let otherBoard= () => {
         for (let j = 0; j<4; j++){
             drawRectangle(board[i][j], i, j);
             drawRectangle(opp[board[i][j]], i, 7-j);
-            drawRectangle(opp[board[i][j], 7-i, j);
+            drawRectangle(opp[board[i][j]], 7-i, j);
             drawRectangle(board[i][j], 4+i, 4+j);
         }
     }
