@@ -17,7 +17,7 @@ let firstQuarter = () => {
     }
     for (let i = 0; i<2; i++){
         for (let j = 0; j<4; j++){
-            board[3-i][3-j] = board[i][j];    
+            board[3-i][3-j] = board[i][j];
         }
     }
 }
@@ -36,5 +36,5 @@ let otherBoard= () => {
 let board = [["orange", "blue", "purple", "pink"], ["red", "orange", "pink", "green"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
 firstQuarter();
-drawRectangle("blue", 0, 0);
+otherBoard();
 

@@ -32,5 +32,5 @@ var otherBoard = function () {
 var board = [["orange", "blue", "purple", "pink"], ["red", "orange", "pink", "green"]];
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
 firstQuarter();
-drawRectangle("blue", 0, 0);
+otherBoard();
 //# sourceMappingURL=script.js.map
