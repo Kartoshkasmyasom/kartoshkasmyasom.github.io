@@ -1,8 +1,9 @@
 let drawRectangle = (color: string, i, j: number) => {
     let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
+    const s = 75;
     ctx.fillStyle = color;
-    ctx.fillRect(75*j, 75*i, 75, 75);
+    ctx.fillRect(s*j, s*i, s, s);
     ctx.stroke();
 }
 

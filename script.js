@@ -1,8 +1,9 @@
 var drawRectangle = function (color, i, j) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
+    var s = 75;
     ctx.fillStyle = color;
-    ctx.fillRect(75 * j, 75 * i, 75, 75);
+    ctx.fillRect(s * j, s * i, s, s);
     ctx.stroke();
 };
 var firstQuarter = function () {
