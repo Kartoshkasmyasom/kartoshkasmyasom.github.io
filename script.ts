@@ -8,7 +8,7 @@ let drawRectangle = (color: string, i, j: number) => {
 }
 
 
-let firstQuarter = () => {
+let drawBoard = () => {
    for (let i = 0; i<8; i++) {
        for (let j = 0; j<8; j++){
            drawRectangle(board[i][j], i, j);
@@ -40,6 +40,6 @@ let generateBoard = () => {
 
 let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
-firstQuarter();
-otherBoard();
+generateBoard();
+drawBoard();
 

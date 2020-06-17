@@ -6,7 +6,7 @@ var drawRectangle = function (color, i, j) {
     ctx.fillRect(s * j, s * i, s, s);
     ctx.stroke();
 };
-var firstQuarter = function () {
+var drawBoard = function () {
     for (var i = 0; i < 8; i++) {
         for (var j = 0; j < 8; j++) {
             drawRectangle(board[i][j], i, j);
@@ -36,6 +36,6 @@ var generateBoard = function () {
 };
 var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
-firstQuarter();
-otherBoard();
+generateBoard();
+drawBoard();
 //# sourceMappingURL=script.js.map
