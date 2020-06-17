@@ -7,9 +7,16 @@ var drawRectangle = function (color, i, j) {
     ctx.stroke();
 };
 var firstQuarter = function () {
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 8; i++) {
+        for (var j = 0; j < 8; j++) {
+            drawRectangle(board[i][j], i, j);
+        }
+    }
+};
+var generateBoard = function () {
+    for (var i = 0; i < 6; i++) {
         var array = [];
-        for (var j = 0; j < 4; j++) {
+        for (var j = 0; j < 8; j++) {
             array.push("a");
         }
         board.push(array);
@@ -19,18 +26,15 @@ var firstQuarter = function () {
             board[3 - i][3 - j] = board[i][j];
         }
     }
-};
-var otherBoard = function () {
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
-            drawRectangle(board[i][j], i, j);
-            drawRectangle(opp[board[i][j]], i, 7 - j);
-            drawRectangle(opp[board[i][j]], 7 - i, j);
-            drawRectangle(board[i][j], 4 + i, 4 + j);
+            board[i][7 - j] = opp[board[i][j]];
+            board[7 - i][j] = opp[board[i][j]];
+            board[4 + i][4 + j] = board[i][j];
         }
     }
 };
-var board = [["orange", "blue", "purple", "pink"], ["red", "orange", "pink", "green"]];
+var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
 firstQuarter();
 otherBoard();

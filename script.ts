@@ -9,9 +9,17 @@ let drawRectangle = (color: string, i, j: number) => {
 
 
 let firstQuarter = () => {
-    for (let i = 0; i<2; i++){
+   for (let i = 0; i<8; i++) {
+       for (let j = 0; j<8; j++){
+           drawRectangle(board[i][j], i, j);
+       }
+   }
+}
+
+let generateBoard = () => {
+    for (let i = 0; i<6; i++){
         let array = [];
-        for (let j = 0; j<4; j++){
+        for (let j = 0; j<8; j++){
             array.push("a");
         }
         board.push(array);
@@ -21,20 +29,16 @@ let firstQuarter = () => {
             board[3-i][3-j] = board[i][j];
         }
     }
-}
-
-let otherBoard= () => {
     for (let i = 0; i<4; i++){
         for (let j = 0; j<4; j++){
-            drawRectangle(board[i][j], i, j);
-            drawRectangle(opp[board[i][j]], i, 7-j);
-            drawRectangle(opp[board[i][j]], 7-i, j);
-            drawRectangle(board[i][j], 4+i, 4+j);
+            board[i][7-j] =  opp[board[i][j]];
+            board[7-i][j] = opp[board[i][j]];
+            board[4+i][4+j] = board[i][j];
         }
     }
 }
 
-let board = [["orange", "blue", "purple", "pink"], ["red", "orange", "pink", "green"]];
+let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
 firstQuarter();
 otherBoard();
