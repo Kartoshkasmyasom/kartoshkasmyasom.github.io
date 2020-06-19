@@ -46,4 +46,5 @@ var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
 generateBoard();
 drawBoard();
+drawChip();
 //# sourceMappingURL=script.js.map

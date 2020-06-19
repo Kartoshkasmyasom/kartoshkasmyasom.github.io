@@ -51,4 +51,4 @@ let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
 generateBoard();
 drawBoard();
-
+drawChip();
