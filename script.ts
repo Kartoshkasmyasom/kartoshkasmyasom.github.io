@@ -38,6 +38,15 @@ let generateBoard = () => {
     }
 }
 
+let drawChip = () =>  {
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(32.5, 32.5, 30, 0, 2 * Math.PI);
+    ctx.stroke();
+}
+
 let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
 generateBoard();
