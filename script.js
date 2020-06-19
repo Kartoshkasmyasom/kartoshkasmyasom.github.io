@@ -34,19 +34,20 @@ var generateBoard = function () {
         }
     }
 };
-var drawChip = function () {
+var drawChip = function (x, y, r, color) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
-    ctx.arc(32.5, 32.5, 32, 0, 2 * Math.PI);
-    ctx.fillStyle = "white";
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
     ctx.fill();
-    ctx.strokeStyle = "white";
+    ctx.strokeStyle = color;
     ctx.stroke();
 };
 var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
 generateBoard();
 drawBoard();
-drawChip();
+drawChip(32.5, 32.5, 32, "white");
+drawChip(32.5, 32.5, 16, "orange");
 //# sourceMappingURL=script.js.map
