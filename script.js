@@ -37,7 +37,6 @@ var generateBoard = function () {
 var drawChip = function () {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    ctx.beginPath();
     ctx.fillStyle = "white";
     ctx.arc(32.5, 32.5, 32.5, 0, 2 * Math.PI);
     ctx.stroke();

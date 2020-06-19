@@ -41,7 +41,6 @@ let generateBoard = () => {
 let drawChip = () =>  {
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
-    ctx.beginPath();
     ctx.fillStyle = "white";
     ctx.arc(32.5, 32.5, 32.5, 0, 2 * Math.PI);
     ctx.stroke();
