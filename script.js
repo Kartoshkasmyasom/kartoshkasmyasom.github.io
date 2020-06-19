@@ -37,8 +37,11 @@ var generateBoard = function () {
 var drawChip = function () {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(32.5, 32.5, 32, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
-    ctx.arc(32.5, 32.5, 32.5, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.strokeStyle = "white";
     ctx.stroke();
 };
 var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
