@@ -39,7 +39,7 @@ let generateBoard = () => {
 }
 
 let drawChip = (x, y, r: number, color: string) =>  {
-    let c = <HTMLCanvasElement>document.getElementById("myChip");
+    let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI);
@@ -52,34 +52,22 @@ let drawChip = (x, y, r: number, color: string) =>  {
 class Progress {
     handleEvent(event){
         switch (event.type) {
-            case 'mousedown':
-                x = event.clientX;
-                y = event.clientY;
-                X = Math.floor(x / 75);
-                Y = Math.floor(y / 75);
+            case 'click':
+                X = Math.floor(event.clientX / 75);
+                Y = Math.floor(event.clientY / 75);
                 if (chipLocation[X][Y] !== "n") {
                     if (selected !== true) {
                         selected = true;
+                        drawChip(X * 75 / 2, Y * 75 / 2, 33, "yellow");
+                        x = X;
+                        y = Y;
                     }
                 }
-                break;
-            case 'mousemove':
-                document.getElementById("myChip").style.left = x+'px';
-                document.getElementById("myChip").style.top = y+'px';
-                x = event.clientX;
-                y = event.clientY;
-                break;
-            case 'mouseup':
-                selected = false;
-                let X1 = Math.floor(event.clientX / 75);
-                let Y1 = Math.floor(event.clientY / 75);
-                if (Y === Y1 && X !== X1 || Math.abs(Y1 - Y) === Math.abs(X1 - X)){
-                    drawChip(X1 * 75 / 2, Y1 * 75 / 2, 32, "white");
-                    drawChip(X1 * 75 / 2, Y1 * 75 / 2, 16, "orange");
-                }
-                else{
-                    drawChip(X * 75 / 2, Y * 75 / 2, 32, "white");
-                    drawChip(X * 75 / 2, Y * 75 / 2, 16, "orange");
+                else if (selected){
+                    if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)){
+                        drawChip(X * 75 / 2, Y * 75 / 2, 32, "white");
+                        drawChip(X * 75 / 2, Y * 75 / 2, 16, "orange");
+                    }
                 }
                 break;
         }
@@ -98,18 +86,14 @@ for (let i = 0; i<8; i++){
 }
 
 let selected = false;
-let X = -1;
-let Y = -1;
-let x = -1;
-let y = -1;
+let X, Y, x, y;
 generateBoard();
 drawBoard();
 drawChip(32.5, 32.5, 32, "white");
 drawChip(32.5, 32.5, 16, "orange");
 chipLocation[0][0] = "orange";
 let progress = new Progress();
-document.addEventListener('mousedown', progress);
-document.addEventListener('mousemove', progress);
-document.addEventListener('mouseup', progress);
+document.addEventListener('click', progress);
+
 
 
