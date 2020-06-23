@@ -90,6 +90,7 @@ class Progress {
                         drawChip(X * 75 / 2, Y * 75 / 2, 32, "white");
                         drawChip(X * 75 / 2, Y * 75 / 2, 16, "orange");
                     }
+                    selected = false;
                 }
                 break;
         }
