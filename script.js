@@ -44,6 +44,23 @@ var drawChip = function (x, y, r, color) {
     ctx.strokeStyle = color;
     ctx.stroke();
 };
+var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
+var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
+var chipLocation = [];
+for (var i = 0; i < 8; i++) {
+    var array = [];
+    for (var j = 0; j < 8; j++) {
+        array.push("n");
+    }
+    chipLocation.push(array);
+}
+var selected = false;
+var X, Y, x, y;
+generateBoard();
+drawBoard();
+drawChip(32.5, 32.5, 32, "white");
+drawChip(32.5, 32.5, 16, "orange");
+chipLocation[0][0] = "orange";
 var Progress = /** @class */ (function () {
     function Progress() {
     }
@@ -71,23 +88,6 @@ var Progress = /** @class */ (function () {
     };
     return Progress;
 }());
-var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
-var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
-var chipLocation = [];
-for (var i = 0; i < 8; i++) {
-    var array = [];
-    for (var j = 0; j < 8; j++) {
-        array.push("n");
-    }
-    chipLocation.push(array);
-}
-var selected = false;
-var X, Y, x, y;
-generateBoard();
-drawBoard();
-drawChip(32.5, 32.5, 32, "white");
-drawChip(32.5, 32.5, 16, "orange");
-chipLocation[0][0] = "orange";
 var progress = new Progress();
 document.addEventListener('click', progress);
 //# sourceMappingURL=script.js.map

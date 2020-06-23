@@ -49,6 +49,28 @@ let drawChip = (x, y, r: number, color: string) =>  {
     ctx.stroke();
 }
 
+
+
+let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
+let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
+let chipLocation = [];
+for (let i = 0; i<8; i++){
+    let array = [];
+    for (let j = 0; j<8; j++){
+        array.push("n");
+    }
+    chipLocation.push(array);
+}
+
+let selected = false;
+let X, Y, x, y;
+generateBoard();
+drawBoard();
+drawChip(32.5, 32.5, 32, "white");
+drawChip(32.5, 32.5, 16, "orange");
+chipLocation[0][0] = "orange";
+
+
 class Progress {
     handleEvent(event){
         switch (event.type) {
@@ -74,26 +96,5 @@ class Progress {
     }
 }
 
-let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
-let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
-let chipLocation = [];
-for (let i = 0; i<8; i++){
-    let array = [];
-    for (let j = 0; j<8; j++){
-        array.push("n");
-    }
-    chipLocation.push(array);
-}
-
-let selected = false;
-let X, Y, x, y;
-generateBoard();
-drawBoard();
-drawChip(32.5, 32.5, 32, "white");
-drawChip(32.5, 32.5, 16, "orange");
-chipLocation[0][0] = "orange";
 let progress = new Progress();
 document.addEventListener('click', progress);
-
-
-
