@@ -67,8 +67,8 @@ var Progress = /** @class */ (function () {
     Progress.prototype.handleEvent = function (event) {
         switch (event.type) {
             case 'click':
-                X = Math.floor(event.clientX / 75);
-                Y = Math.floor(event.clientY / 75);
+                X = Math.floor(event.pageX / 75);
+                Y = Math.floor(event.pageY / 75);
                 if (chipLocation[X][Y] !== "n") {
                     if (selected !== true) {
                         selected = true;
