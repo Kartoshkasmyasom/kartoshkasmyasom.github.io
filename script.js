@@ -44,7 +44,7 @@ var drawChip = function (x, y, r, color) {
     ctx.strokeStyle = color;
     ctx.stroke();
 };
-// let checkCoordinates = ()
+//   let checkCoordinates = ()
 var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
 var chipLocation = [];
@@ -68,8 +68,8 @@ var Progress = /** @class */ (function () {
     Progress.prototype.handleEvent = function (event) {
         switch (event.type) {
             case 'click':
-                if (event.target.closest('....')) {
-                    var target = event.target.closest('....'); // Здесь что-то уникальное, что может указать на род. блок
+                if (event.target.closest('myCanvas')) {
+                    var target = event.target.closest('myCanvas');
                     var targetCoords = target.getBoundingClientRect();
                     var xCoord = event.clientX - targetCoords.left;
                     var yCoord = event.clientY - targetCoords.top;

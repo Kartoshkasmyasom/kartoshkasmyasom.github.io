@@ -49,7 +49,7 @@ let drawChip = (x, y, r: number, color: string) =>  {
     ctx.stroke();
 }
 
-// let checkCoordinates = ()
+//   let checkCoordinates = ()
 
 let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
@@ -75,8 +75,8 @@ class Progress {
     handleEvent(event){
         switch (event.type) {
             case 'click':
-                if(event.target.closest('....')){
-                    let target = event.target.closest('....'); // Здесь что-то уникальное, что может указать на род. блок
+                if(event.target.closest('myCanvas')){
+                    let target = event.target.closest('myCanvas');
 
                     let targetCoords = target.getBoundingClientRect();
                     let xCoord = event.clientX - targetCoords.left;
