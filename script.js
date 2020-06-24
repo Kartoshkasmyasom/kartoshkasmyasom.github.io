@@ -49,13 +49,13 @@ var selectChip = function (X, Y) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
-    ctx.arc((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, 0, 2 * Math.PI);
+    ctx.arc(X * 75 + 37.5, Y * 75 + 37.5, 32, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.strokeStyle = "yellow";
     ctx.lineWidth = 5;
     ctx.stroke();
-    drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
+    drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
 };
 var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 var opp = { "orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange" };
@@ -96,8 +96,8 @@ var Progress = /** @class */ (function () {
                     else if (selected) {
                         if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
                             drawRectangle(board[x][y], x, y);
-                            drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white");
-                            drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
+                            drawChip(X * 75 + 37.5, Y * 75 + 37.5, 32, "white");
+                            drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
                         }
                         selected = false;
                     }
