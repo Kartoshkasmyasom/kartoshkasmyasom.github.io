@@ -68,12 +68,12 @@ var Progress = /** @class */ (function () {
     Progress.prototype.handleEvent = function (event) {
         switch (event.type) {
             case 'click':
-                var target = event.closest("myCanvas");
-                var targetCoords = target.getBoundingClientRect();
-                var xCoord = event.clientX - targetCoords.left;
-                var yCoord = event.clientY - targetCoords.top;
-                alert('Координаты по X: ' + xCoord);
-                alert('Координаты по Y: ' + yCoord);
+                var target = event.target;
+                if (target.tagName === 'myCanvas') {
+                    var help = target.getBoundingClientRect();
+                    alert("X: " + (event.clientX - help.left));
+                    alert("Y: " + (event.clientY - help.top));
+                }
                 break;
         }
     };
