@@ -68,8 +68,8 @@ var Progress = /** @class */ (function () {
     Progress.prototype.handleEvent = function (event) {
         switch (event.type) {
             case 'click':
-                if (event.target.closest('myCanvas')) {
-                    var target = event.target.closest('myCanvas');
+                if (event.target.closest("myCanvas")) {
+                    var target = event.target.closest("myCanvas");
                     var targetCoords = target.getBoundingClientRect();
                     var xCoord = event.clientX - targetCoords.left;
                     var yCoord = event.clientY - targetCoords.top;
