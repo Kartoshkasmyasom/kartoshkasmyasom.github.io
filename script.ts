@@ -4,7 +4,6 @@ let drawRectangle = (color: string, i, j: number) => {
     const s = 75;
     ctx.fillStyle = color;
     ctx.fillRect(s*j, s*i, s, s);
-    ctx.stroke();
 }
 
 

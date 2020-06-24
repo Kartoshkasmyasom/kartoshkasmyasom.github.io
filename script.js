@@ -4,7 +4,6 @@ var drawRectangle = function (color, i, j) {
     var s = 75;
     ctx.fillStyle = color;
     ctx.fillRect(s * j, s * i, s, s);
-    ctx.stroke();
 };
 var drawBoard = function () {
     for (var i = 0; i < 8; i++) {
