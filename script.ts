@@ -92,7 +92,7 @@ class Progress {
                    let help = target.getBoundingClientRect();
                    X = Math.floor((event.clientX - help.left) / 75);
                    Y = Math.floor((event.clientY - help.top) / 75);
-                   if (chipLocation[X][Y] !== "n") {
+                   if (chipLocation[Y][X] !== "n") {
                        if (selected !== true) {
                            selected = true;
                            selectChip(Y, X);
