@@ -45,7 +45,7 @@ var drawChip = function (x, y, r, color) {
     ctx.stroke();
 };
 var selectChip = function (X, Y) {
-    drawRectangle(board[X][Y], X, Y);
+    drawRectangle(board[Y][X], Y, X);
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
@@ -88,7 +88,7 @@ var Progress = /** @class */ (function () {
                     if (chipLocation[Y][X] !== "n") {
                         if (selected !== true) {
                             selected = true;
-                            selectChip(Y, X);
+                            selectChip(X, Y);
                             x = X;
                             y = Y;
                         }

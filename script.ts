@@ -50,7 +50,7 @@ let drawChip = (x, y, r: number, color: string) =>  {
 }
 
 let selectChip = (X, Y: number) => {
-    drawRectangle(board[X][Y], X, Y);
+    drawRectangle(board[Y][X], Y, X);
     let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     ctx.beginPath();
@@ -95,7 +95,7 @@ class Progress {
                    if (chipLocation[Y][X] !== "n") {
                        if (selected !== true) {
                            selected = true;
-                           selectChip(Y, X);
+                           selectChip(X, Y);
                            x = X;
                            y = Y;
                        }
