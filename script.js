@@ -83,8 +83,8 @@ var Progress = /** @class */ (function () {
                 var target = event.target;
                 if (target.tagName === 'CANVAS') {
                     var help = target.getBoundingClientRect();
-                    X = Math.floor((event.clientX - help.left) / 75);
-                    Y = Math.floor((event.clientY - help.top) / 75);
+                    Y = Math.floor((event.clientX - help.left) / 75);
+                    X = Math.floor((event.clientY - help.top) / 75);
                     if (chipLocation[X][Y] !== "n") {
                         if (selected !== true) {
                             selected = true;
