@@ -45,11 +45,23 @@ let drawChip = (x, y, r: number, color: string) =>  {
     ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fillStyle = color;
     ctx.fill();
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = color;
     ctx.stroke();
 }
 
-//   let checkCoordinates = ()
+let selectChip = (X, Y: number) => {
+    drawRectangle(board[X][Y], X, Y);
+    let c = <HTMLCanvasElement>document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, 0, 2 * Math.PI);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.strokeStyle = "yellow";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
+}
 
 let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
 let opp = {"orange": "brown", "blue": "green", "purple": "red", "pink": "yellow", "yellow": "pink", "red": "purple", "green": "blue", "brown": "orange"}
@@ -66,8 +78,8 @@ let selected = false;
 let X, Y, x, y;
 generateBoard();
 drawBoard();
-drawChip(32.5, 32.5, 32, "white", "white");
-drawChip(32.5, 32.5, 16, "orange", "orange");
+drawChip(37.5, 37.5, 32, "white");
+drawChip(37.5, 37.5, 16, "orange");
 chipLocation[0][0] = "orange";
 
 
@@ -83,9 +95,7 @@ class Progress {
                    if (chipLocation[X][Y] !== "n") {
                        if (selected !== true) {
                            selected = true;
-                           drawRectangle(board[X][Y], X, Y);
-                           drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white");
-                           drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
+                           selectChip(X, Y);
                            x = X;
                            y = Y;
                        }
