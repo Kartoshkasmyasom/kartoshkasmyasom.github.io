@@ -83,23 +83,23 @@ var Progress = /** @class */ (function () {
                 var target = event.target;
                 if (target.tagName === 'CANVAS') {
                     var help = target.getBoundingClientRect();
-                    Y = Math.floor((event.clientX - help.left) / 75);
-                    X = Math.floor((event.clientY - help.top) / 75);
+                    X = Math.floor((event.clientX - help.left) / 75);
+                    Y = Math.floor((event.clientY - help.top) / 75);
                     if (chipLocation[X][Y] !== "n") {
                         if (selected !== true) {
                             selected = true;
-                            selectChip(X, Y);
+                            selectChip(Y, X);
                             x = X;
                             y = Y;
                         }
                     }
                     else if (selected) {
-                        if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
-                            drawRectangle(board[x][y], x, y);
+                        if (X === x && Y !== y || Math.abs(Y - y) === Math.abs(X - x)) {
+                            drawRectangle(board[y][x], y, x);
                             drawChip(X * 75 + 37.5, Y * 75 + 37.5, 32, "white");
                             drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
-                            chipLocation[x][y] = "n";
-                            chipLocation[X][Y] = "orange";
+                            chipLocation[y][x] = "n";
+                            chipLocation[Y][X] = "orange";
                         }
                         selected = false;
                     }
