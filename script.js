@@ -43,6 +43,7 @@ var drawChip = function (x, y, r, color) {
     ctx.fill();
     ctx.strokeStyle = color;
     ctx.stroke();
+    ctx.closePath();
 };
 var selectChip = function (X, Y) {
     drawRectangle(board[Y][X], Y, X);

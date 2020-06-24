@@ -47,6 +47,7 @@ let drawChip = (x, y, r: number, color: string) =>  {
     ctx.fill();
     ctx.strokeStyle = color;
     ctx.stroke();
+    ctx.closePath();
 }
 
 let selectChip = (X, Y: number) => {
