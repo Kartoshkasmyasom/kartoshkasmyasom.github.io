@@ -77,16 +77,16 @@ var Progress = /** @class */ (function () {
                         if (selected !== true) {
                             selected = true;
                             drawRectangle(board[X][Y], X, Y);
-                            drawChip(X * 75 / 2, Y * 75 / 2, 32, "orange", "yellow");
-                            drawChip(X * 75 / 2, Y * 75 / 2, 16, "white", "white");
+                            drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white", "yellow");
+                            drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange", "orange");
                             x = X;
                             y = Y;
                         }
                         else if (selected) {
                             if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
                                 drawRectangle(board[x][y], x, y);
-                                drawChip(X * 75 / 2, Y * 75 / 2, 32, "orange", "orange");
-                                drawChip(X * 75 / 2, Y * 75 / 2, 16, "white", "white");
+                                drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white", "white");
+                                drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange", "orange");
                             }
                             selected = false;
                         }
