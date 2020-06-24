@@ -76,6 +76,7 @@ var Progress = /** @class */ (function () {
                     alert('Координаты по X: ' + xCoord);
                     alert('Координаты по Y: ' + yCoord);
                 }
+                break;
         }
     };
     return Progress;

@@ -85,6 +85,7 @@ class Progress {
                     alert('Координаты по X: ' + xCoord);
                     alert('Координаты по Y: ' + yCoord);
                 }
+                break;
 
         }
     }
