@@ -76,8 +76,7 @@ class Progress {
         switch (event.type) {
             case 'click':
                let target = event.target;
-               let name = target.tagName;
-               if (target.tagName === 'myCanvas'){
+               if (target.tagName === 'CANVAS'){
                    let help = target.getBoundingClientRect();
                    alert("X: " + (event.clientX - help.left));
                    alert("Y: " + (event.clientY - help.top));

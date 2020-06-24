@@ -69,8 +69,7 @@ var Progress = /** @class */ (function () {
         switch (event.type) {
             case 'click':
                 var target = event.target;
-                var name_1 = target.tagName;
-                if (target.tagName === 'myCanvas') {
+                if (target.tagName === 'CANVAS') {
                     var help = target.getBoundingClientRect();
                     alert("X: " + (event.clientX - help.left));
                     alert("Y: " + (event.clientY - help.top));
