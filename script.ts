@@ -60,6 +60,7 @@ let selectChip = (X, Y: number) => {
     ctx.strokeStyle = "yellow";
     ctx.lineWidth = 5;
     ctx.stroke();
+    ctx.closePath();
     drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
 }
 
