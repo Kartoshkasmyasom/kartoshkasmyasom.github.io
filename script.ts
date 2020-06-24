@@ -45,9 +45,9 @@ let drawChip = (x, y, r: number, color: string) =>  {
     ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fillStyle = color;
     ctx.fill();
+    ctx.closePath();
     ctx.strokeStyle = color;
     ctx.stroke();
-    ctx.closePath();
 }
 
 let selectChip = (X, Y: number) => {
@@ -58,10 +58,10 @@ let selectChip = (X, Y: number) => {
     ctx.arc(X * 75 + 37.5 , Y * 75 + 37.5, 32, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
+    ctx.closePath();
     ctx.strokeStyle = "yellow";
     ctx.lineWidth = 5;
     ctx.stroke();
-    ctx.closePath();
     drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
 }
 

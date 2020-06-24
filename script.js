@@ -41,9 +41,9 @@ var drawChip = function (x, y, r, color) {
     ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fillStyle = color;
     ctx.fill();
+    ctx.closePath();
     ctx.strokeStyle = color;
     ctx.stroke();
-    ctx.closePath();
 };
 var selectChip = function (X, Y) {
     drawRectangle(board[Y][X], Y, X);
@@ -53,10 +53,10 @@ var selectChip = function (X, Y) {
     ctx.arc(X * 75 + 37.5, Y * 75 + 37.5, 32, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
+    ctx.closePath();
     ctx.strokeStyle = "yellow";
     ctx.lineWidth = 5;
     ctx.stroke();
-    ctx.closePath();
     drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
 };
 var board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
