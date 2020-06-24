@@ -34,14 +34,14 @@ var generateBoard = function () {
         }
     }
 };
-var drawChip = function (x, y, r, color) {
+var drawChip = function (x, y, r, color1, color2) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI);
-    ctx.fillStyle = color;
+    ctx.fillStyle = color1;
     ctx.fill();
-    ctx.strokeStyle = color;
+    ctx.strokeStyle = color2;
     ctx.stroke();
 };
 //   let checkCoordinates = ()
@@ -59,8 +59,8 @@ var selected = false;
 var X, Y, x, y;
 generateBoard();
 drawBoard();
-drawChip(32.5, 32.5, 32, "white");
-drawChip(32.5, 32.5, 16, "orange");
+drawChip(32.5, 32.5, 32, "white", "white");
+drawChip(32.5, 32.5, 16, "orange", "orange");
 chipLocation[0][0] = "orange";
 var Progress = /** @class */ (function () {
     function Progress() {
@@ -71,8 +71,26 @@ var Progress = /** @class */ (function () {
                 var target = event.target;
                 if (target.tagName === 'CANVAS') {
                     var help = target.getBoundingClientRect();
-                    alert("X: " + (event.clientX - help.left));
-                    alert("Y: " + (event.clientY - help.top));
+                    X = Math.floor((event.clientX - help.left) / 75);
+                    Y = Math.floor((event.clientY - help.top) / 75);
+                    if (chipLocation[X][Y] !== "n") {
+                        if (selected !== true) {
+                            selected = true;
+                            drawRectangle(board[X][Y], X, Y);
+                            drawChip(X * 75 / 2, Y * 75 / 2, 32, "orange", "yellow");
+                            drawChip(X * 75 / 2, Y * 75 / 2, 16, "white", "white");
+                            x = X;
+                            y = Y;
+                        }
+                        else if (selected) {
+                            if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
+                                drawRectangle(board[x][y], x, y);
+                                drawChip(X * 75 / 2, Y * 75 / 2, 32, "orange", "orange");
+                                drawChip(X * 75 / 2, Y * 75 / 2, 16, "white", "white");
+                            }
+                            selected = false;
+                        }
+                    }
                 }
                 break;
         }
