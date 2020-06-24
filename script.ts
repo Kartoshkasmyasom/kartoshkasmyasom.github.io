@@ -38,14 +38,14 @@ let generateBoard = () => {
     }
 }
 
-let drawChip = (x, y, r: number, color1, color2: string) =>  {
+let drawChip = (x, y, r: number, color: string) =>  {
     let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI);
-    ctx.fillStyle = color1;
+    ctx.fillStyle = color;
     ctx.fill();
-    ctx.strokeStyle = color2;
+    ctx.strokeStyle = "black";
     ctx.stroke();
 }
 
@@ -84,8 +84,8 @@ class Progress {
                        if (selected !== true) {
                            selected = true;
                            drawRectangle(board[X][Y], X, Y);
-                           drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white", "yellow");
-                           drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange", "orange");
+                           drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white");
+                           drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
                            x = X;
                            y = Y;
                        }
@@ -93,8 +93,8 @@ class Progress {
                         else if (selected) {
                            if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
                                drawRectangle(board[x][y], x, y);
-                               drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white", "white");
-                               drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange", "orange");
+                               drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white");
+                               drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
                            }
                            selected = false;
                        }
