@@ -94,7 +94,7 @@ var Progress = /** @class */ (function () {
                         }
                     }
                     else if (selected) {
-                        if (X === x && Y !== y || Math.abs(Y - y) === Math.abs(X - x)) {
+                        if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
                             drawRectangle(board[x][y], x, y);
                             drawChip(X * 75 + 37.5, Y * 75 + 37.5, 32, "white");
                             drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
