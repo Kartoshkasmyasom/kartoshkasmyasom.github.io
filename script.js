@@ -92,14 +92,14 @@ var Progress = /** @class */ (function () {
                             x = X;
                             y = Y;
                         }
-                        else if (selected) {
-                            if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
-                                drawRectangle(board[x][y], x, y);
-                                drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white");
-                                drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
-                            }
-                            selected = false;
+                    }
+                    else if (selected) {
+                        if (Y === y && X !== x || Math.abs(Y - y) === Math.abs(X - x)) {
+                            drawRectangle(board[x][y], x, y);
+                            drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 32, "white");
+                            drawChip((X + 1) * 75 / 2, (Y + 1) * 75 / 2, 16, "orange");
                         }
+                        selected = false;
                     }
                 }
                 break;
