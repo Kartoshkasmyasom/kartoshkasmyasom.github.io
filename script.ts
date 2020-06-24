@@ -75,16 +75,15 @@ class Progress {
     handleEvent(event){
         switch (event.type) {
             case 'click':
-                if(event.target.closest("myCanvas")){
-                    let target = event.target.closest("myCanvas");
+                let target = event.target.closest("myCanvas");
 
-                    let targetCoords = target.getBoundingClientRect();
-                    let xCoord = event.clientX - targetCoords.left;
-                    let yCoord = event.clientY - targetCoords.top;
+                let targetCoords = target.getBoundingClientRect();
+                let xCoord = event.clientX - targetCoords.left;
+                let yCoord = event.clientY - targetCoords.top;
 
-                    alert('Координаты по X: ' + xCoord);
-                    alert('Координаты по Y: ' + yCoord);
-                }
+                alert('Координаты по X: ' + xCoord);
+                alert('Координаты по Y: ' + yCoord);
+
                 break;
 
         }
