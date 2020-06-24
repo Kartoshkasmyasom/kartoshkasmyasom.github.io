@@ -105,6 +105,8 @@ class Progress {
                            drawRectangle(board[x][y], x, y);
                            drawChip(X * 75 + 37.5, Y * 75 + 37.5, 32, "white");
                            drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
+                           chipLocation[x][y] = "n";
+                           chipLocation[X][Y] = "orange";
                        }
                        selected = false;
                    }
