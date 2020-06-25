@@ -101,8 +101,8 @@ var Progress = /** @class */ (function () {
                             drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
                             chipLocation[y][x] = "n";
                             chipLocation[Y][X] = "orange";
+                            selected = false;
                         }
-                        selected = false;
                     }
                 }
                 break;
