@@ -1,7 +1,6 @@
 let drawRectangle = (color: string, i, j: number) => {
     let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
-    const s = 75;
     ctx.fillStyle = color;
     ctx.fillRect(s*j, s*i, s, s);
 }
@@ -54,14 +53,14 @@ let selectChip = (X, Y: number) => {
     let c = <HTMLCanvasElement>document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     ctx.beginPath();
-    ctx.arc(X * 75 + 37.5 , Y * 75 + 37.5, 32, 0, 2 * Math.PI);
+    ctx.arc(X * s + s / 2 , Y * s + s / 2, 32, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
     ctx.strokeStyle = "yellow";
     ctx.lineWidth = 5;
     ctx.stroke();
-    drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
+    drawChip(X * s + s / 2, Y * s + s / 2, 16, "orange");
 }
 
 let board = [["orange", "blue", "purple", "pink", "a", "a", "a", "a"], ["red", "orange", "pink", "green", "a", "a", "a", "a"]];
@@ -77,10 +76,11 @@ for (let i = 0; i<8; i++){
 
 let selected = false;
 let X, Y, x, y;
+const s = 75;
 generateBoard();
 drawBoard();
-drawChip(37.5, 37.5, 32, "white");
-drawChip(37.5, 37.5, 16, "orange");
+drawChip(s / 2, s / 2, 32, "white");
+drawChip(s / 2, s / 2, 16, "orange");
 chipLocation[0][0] = "orange";
 
 
@@ -102,10 +102,10 @@ class Progress {
                        }
                    }
                    else if (selected) {
-                       if (X === x && Y !== y || Math.abs(Y - y) === Math.abs(X - x)) {
+                       if (X === x && Y > y|| Y - y === Math.abs(X - x)) {
                            drawRectangle(board[y][x], y, x);
-                           drawChip(X * 75 + 37.5, Y * 75 + 37.5, 32, "white");
-                           drawChip(X * 75 + 37.5, Y * 75 + 37.5, 16, "orange");
+                           drawChip(X * s + s / 2, Y * s + s / 2, 32, "white");
+                           drawChip(X * s + s / 2, Y * s + s / 2, 16, "orange");
                            chipLocation[y][x] = "n";
                            chipLocation[Y][X] = "orange";
                            selected = false; 
